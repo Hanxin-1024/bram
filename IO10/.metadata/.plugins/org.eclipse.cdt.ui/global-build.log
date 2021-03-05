@@ -1,0 +1,3592 @@
+15:54:16 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+15:54:21 **** Incremental Build of configuration Debug for project IO10 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+15:58:40 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:55:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:308:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:263:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33908	   2728	  22984	  59620	   e8e4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+15:59:49 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:3: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+   Bram_init();
+   ^~~~~~~~~
+   dma_init
+../src/demo.c:64:4: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+    sleep(1);
+    ^~~~~
+../src/demo.c:52:7: warning: unused variable 'Length' [-Wunused-variable]
+   int Length;
+       ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33908	   2728	  22984	  59620	   e8e4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:00:37 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:65:4: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+    sleep(1);
+    ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33908	   2728	  22984	  59620	   e8e4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:00:43 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:01:23 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:03:24 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:55:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:60:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:308:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:263:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33932	   2728	  22984	  59644	   e8fc	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:03:30 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:65:4: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+    sleep(1);
+    ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33844	   2728	  22984	  59556	   e8a4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:03:36 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:04:01 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:08:29 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:55:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:60:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:311:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:266:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33972	   2728	  22984	  59684	   e924	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:08:38 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:10:33 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:55:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:60:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:311:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:266:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33972	   2728	  22984	  59684	   e924	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:10:39 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:15:36 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:56:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:61:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33972	   2728	  22984	  59684	   e924	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:17:17 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:65:4: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+    sleep(1);
+    ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34036	   2728	  22984	  59748	   e964	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:17:24 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:19:03 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33908	   2728	  22984	  59620	   e8e4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:19:22 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33908	   2728	  22984	  59620	   e8e4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:22:52 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:57:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:62:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:313:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:268:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33908	   2728	  22984	  59620	   e8e4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:23:20 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:56:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:61:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:71:3: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+   sleep(1);
+   ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33844	   2728	  22984	  59556	   e8a4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:25:14 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:71:3: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+   sleep(1);
+   ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33844	   2728	  22984	  59556	   e8a4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:25:32 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:26:14 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:29:33 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:71:3: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+   sleep(1);
+   ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33844	   2728	  22984	  59556	   e8a4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:29:42 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:34:51 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:63:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:314:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:269:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33852	   2728	  22984	  59564	   e8ac	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:34:59 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:71:3: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+   sleep(1);
+   ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33852	   2728	  22984	  59564	   e8ac	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:35:25 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:71:3: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+   sleep(1);
+   ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33852	   2728	  22984	  59564	   e8ac	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:35:32 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:36:41 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:63:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:311:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:266:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33852	   2728	  22984	  59564	   e8ac	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:36:46 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:39:42 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:63:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33852	   2728	  22984	  59564	   e8ac	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:39:48 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:41:33 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:63:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33824	   2728	  22984	  59536	   e890	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:41:42 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:45:58 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+../src/bram_driver.c: In function 'Bram3RxIntrHandler':
+../src/bram_driver.c:63:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33824	   2728	  22984	  59536	   e890	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:46:30 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:47:23 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33880	   2728	  22984	  59592	   e8c8	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:47:29 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:48:11 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:49:33 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33880	   2728	  22984	  59592	   e8c8	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:49:42 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33752	   2728	  22984	  59464	   e848	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:50:11 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:51:46 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:71:3: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+   sleep(1);
+   ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33880	   2728	  22984	  59592	   e8c8	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:52:07 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../src/bram_driver.c:20:2: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+  sleep(1);
+  ^~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33880	   2728	  22984	  59592	   e8c8	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:52:12 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:53:43 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33880	   2728	  22984	  59592	   e8c8	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:54:34 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33688	   2728	  22984	  59400	   e808	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:54:40 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:55:13 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:21:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:58:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:42:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:45:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:312:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:267:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33692	   2728	  22984	  59404	   e80c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:56:29 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:67:6: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+      sleep(1);
+      ^~~~~
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  33884	   2728	  22984	  59596	   e8cc	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+16:56:40 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:04:08 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:394:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:349:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.c:103:13: warning: 'Bram2RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:84:13: warning: 'Bram2TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:65:13: warning: 'Bram1RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:46:13: warning: 'Bram1TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34476	   2728	  22984	  60188	   eb1c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:04:15 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:05:38 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:394:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:349:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.c:103:13: warning: 'Bram2RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:84:13: warning: 'Bram2TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:65:13: warning: 'Bram1RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:46:13: warning: 'Bram1TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34476	   2728	  22984	  60188	   eb1c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:05:46 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:07:50 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:394:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:349:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.c:103:13: warning: 'Bram2RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:84:13: warning: 'Bram2TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:65:13: warning: 'Bram1RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:46:13: warning: 'Bram1TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34476	   2728	  22984	  60188	   eb1c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:07:56 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:12:07 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:394:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:349:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.c:103:13: warning: 'Bram2RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:84:13: warning: 'Bram2TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:65:13: warning: 'Bram1RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:46:13: warning: 'Bram1TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34476	   2728	  22984	  60188	   eb1c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:12:11 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:394:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:349:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.c:103:13: warning: 'Bram2RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:84:13: warning: 'Bram2TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:65:13: warning: 'Bram1RxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1RxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:46:13: warning: 'Bram1TxIntrHandler' defined but not used [-Wunused-function]
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34476	   2728	  22984	  60188	   eb1c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:12:57 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:392:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:347:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  34540	   2728	  22984	  60252	   eb5c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:13:08 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:19:14 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/demo.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/demo.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/demo.d" -MT"src/demo.o" -o "src/demo.o" "../src/demo.c"
+../src/demo.c: In function 'Bram_demo':
+../src/demo.c:54:2: warning: implicit declaration of function 'Bram_init'; did you mean 'dma_init'? [-Wimplicit-function-declaration]
+  Bram_init();
+  ^~~~~~~~~
+  dma_init
+../src/demo.c:56:2: warning: implicit declaration of function 'Bram0sendpacket' [-Wimplicit-function-declaration]
+  Bram0sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c:57:2: warning: implicit declaration of function 'Bram1sendpacket' [-Wimplicit-function-declaration]
+  Bram1sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c:58:2: warning: implicit declaration of function 'Bram2sendpacket' [-Wimplicit-function-declaration]
+  Bram2sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c:59:2: warning: implicit declaration of function 'Bram3sendpacket' [-Wimplicit-function-declaration]
+  Bram3sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c:53:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+../src/demo.c:52:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:51:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+../src/demo.c: At top level:
+../src/demo.c:62:6: warning: conflicting types for 'Bram0sendpacket'
+ void Bram0sendpacket()
+      ^~~~~~~~~~~~~~~
+../src/demo.c:56:2: note: previous implicit declaration of 'Bram0sendpacket' was here
+  Bram0sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c: In function 'Bram0sendpacket':
+../src/demo.c:80:6: warning: implicit declaration of function 'sleep' [-Wimplicit-function-declaration]
+      sleep(1);
+      ^~~~~
+../src/demo.c:65:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:64:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+../src/demo.c: At top level:
+../src/demo.c:85:6: warning: conflicting types for 'Bram1sendpacket'
+ void Bram1sendpacket()
+      ^~~~~~~~~~~~~~~
+../src/demo.c:57:2: note: previous implicit declaration of 'Bram1sendpacket' was here
+  Bram1sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c: In function 'Bram1sendpacket':
+../src/demo.c:88:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:87:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+../src/demo.c: At top level:
+../src/demo.c:108:6: warning: conflicting types for 'Bram2sendpacket'
+ void Bram2sendpacket()
+      ^~~~~~~~~~~~~~~
+../src/demo.c:58:2: note: previous implicit declaration of 'Bram2sendpacket' was here
+  Bram2sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c: In function 'Bram2sendpacket':
+../src/demo.c:111:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:110:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+../src/demo.c: At top level:
+../src/demo.c:131:6: warning: conflicting types for 'Bram3sendpacket'
+ void Bram3sendpacket()
+      ^~~~~~~~~~~~~~~
+../src/demo.c:59:2: note: previous implicit declaration of 'Bram3sendpacket' was here
+  Bram3sendpacket();
+  ^~~~~~~~~~~~~~~
+../src/demo.c: In function 'Bram3sendpacket':
+../src/demo.c:134:6: warning: unused variable 'Length' [-Wunused-variable]
+  int Length;
+      ^~~~~~
+../src/demo.c:133:6: warning: unused variable 'Status' [-Wunused-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/demo.c:23:0:
+../src/demo.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.h:107:13: warning: 'DisableIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+../src/bram_driver.h:113:13: warning: 'Bram0RxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0RxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:114:13: warning: 'Bram0TxIntrHandler' declared 'static' but never defined [-Wunused-function]
+ static void Bram0TxIntrHandler();
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.h:124:13: warning: 'Intc' defined but not used [-Wunused-variable]
+ static INTC Intc; /* Instance of the Interrupt Controller */
+             ^~~~
+../src/bram_driver.h:71:16: warning: 'Gpio' defined but not used [-Wunused-variable]
+ static XGpioPs Gpio; /* The Instance of the GPIO Driver */
+                ^~~~
+'Finished building: ../src/demo.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35052	   2728	  22984	  60764	   ed5c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:19:36 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:21:53 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:392:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:347:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35052	   2728	  22984	  60764	   ed5c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:21:59 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:23:23 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:392:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:347:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35052	   2728	  22984	  60764	   ed5c	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:23:40 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:25:23 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:392:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:347:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35220	   2728	  22984	  60932	   ee04	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:25:55 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:28:45 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:392:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:347:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35220	   2728	  22984	  60932	   ee04	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:28:56 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:31:24 **** Auto Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/bram_driver.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/bram_driver.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../BRAMintr_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/bram_driver.d" -MT"src/bram_driver.o" -o "src/bram_driver.o" "../src/bram_driver.c"
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram0TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:24:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:8:13: note: declared here
+ static void Bram0TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:11:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram1TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:62:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:46:13: note: declared here
+ static void Bram1TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:49:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram2TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:100:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:84:13: note: declared here
+ static void Bram2TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:87:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma_bdring.h:86:0,
+                 from ../../BRAMintr_bsp/ps7_cortexa9_0/include/xaxidma.h:492,
+                 from ../src/bram_driver.h:13,
+                 from ../src/bram_driver.c:2:
+../src/bram_driver.c: In function 'Bram3TxIntrHandler':
+../../BRAMintr_bsp/ps7_cortexa9_0/include/xstatus.h:64:41: warning: 'return' with a value, in function returning void
+ #define XST_SUCCESS                     0L
+                                         ^
+../src/bram_driver.c:139:9: note: in expansion of macro 'XST_SUCCESS'
+  return XST_SUCCESS;
+         ^~~~~~~~~~~
+../src/bram_driver.c:123:13: note: declared here
+ static void Bram3TxIntrHandler()
+             ^~~~~~~~~~~~~~~~~~
+../src/bram_driver.c:126:6: warning: variable 'Status' set but not used [-Wunused-but-set-variable]
+  int Status;
+      ^~~~~~
+In file included from ../src/bram_driver.c:2:0:
+../src/bram_driver.c: At top level:
+../src/bram_driver.h:95:12: warning: 'CheckData' declared 'static' but never defined [-Wunused-function]
+ static int CheckData(int Length, u8 StartValue);
+            ^~~~~~~~~
+../src/bram_driver.h:105:12: warning: 'SetupIntrSystem' declared 'static' but never defined [-Wunused-function]
+ static int SetupIntrSystem(INTC * IntcInstancePtr,
+            ^~~~~~~~~~~~~~~
+../src/bram_driver.c: In function 'Bram_init':
+../src/bram_driver.c:392:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+At top level:
+../src/bram_driver.c:347:13: warning: 'DisableIntrSystem' defined but not used [-Wunused-function]
+ static void DisableIntrSystem(INTC * IntcInstancePtr,
+             ^~~~~~~~~~~~~~~~~
+'Finished building: ../src/bram_driver.c'
+' '
+'Building target: BRAMintr.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../BRAMintr_bsp/ps7_cortexa9_0/lib -o "BRAMintr.elf"  ./src/bram_driver.o ./src/demo.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: BRAMintr.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size BRAMintr.elf  |tee "BRAMintr.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  35156	   2728	  22984	  60868	   edc4	BRAMintr.elf
+'Finished building: BRAMintr.elf.size'
+' '
+17:31:30 **** Incremental Build of configuration Debug for project BRAMintr ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+18:41:33 **** Auto Build of configuration Debug for project IO10 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

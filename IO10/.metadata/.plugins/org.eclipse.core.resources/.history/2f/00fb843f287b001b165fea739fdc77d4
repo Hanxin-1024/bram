@@ -1,0 +1,142 @@
+/*
+ * demo.c
+ *
+ *  Created on: 2020年12月26日
+ *      Author: xin.han
+ *      //串口驱动
+
+//LVDS
+
+//8B/10
+
+//IO
+
+//RS485
+
+//1553B
+ *
+ */
+
+
+
+#include "xdma_driver.h"
+#include "xuartps.h"
+#include "xparameters.h"
+
+
+
+
+
+
+void Xdma_demo();
+
+//void show8();
+//void show9();
+
+
+extern int TotalReceivedCount;
+
+
+int main ()
+{
+xil_printf("start\r\n");
+//	count();
+//	LVDS_demo();
+//	Xdma_demo();
+//    Uart_demo();
+	speed_demo();
+}
+
+
+
+void Xdma_demo()
+{
+	int Status;
+	int Length;
+	u8 rBuffer[256] = {0};
+	u8 wBuffer[256] = {0};
+
+	int i;
+
+	dma_init();
+
+    for(i=0;i<256;i++)
+    {
+    	wBuffer[i]=i+2;
+    }
+	dma_8_10b_send(&AxiDma,wBuffer,8);
+    for(i=0;i<256;i++)
+    {
+    	wBuffer[i]=i+2;
+    }
+	dma_8_10b_send(&AxiDma1,wBuffer , 16);
+    for(i=0;i<256;i++)
+    {
+    	wBuffer[i]=i+3;
+    }
+	dma_8_10b_send(&AxiDma2,wBuffer , 32);
+    for(i=0;i<256;i++)
+    {
+    	wBuffer[i]=i+4;
+    }
+	dma_8_10b_send(&AxiDma3,wBuffer , 32);
+
+	while(1)
+	{
+		if(DMA0RxDone == 1)
+		{
+//			Status = XAxiDma_ReadReg(XPAR_AXI_DMA_0_BASEADDR,0x58);
+//						xil_printf("length2 is 0x%x\r\n",Status);
+//		    Status = XAxiDma_ReadReg(XPAR_AXI_DMA_0_BASEADDR,0x28);
+//						xil_printf("TX length2 is 0x%x\r\n",Status);
+
+			Length = dma_8_10b_recv(&AxiDma,rBuffer);
+			xil_printf("length DMA0 is 0x%x\r\n",Length);
+			xil_printf("DATE: ");
+			for(i=0; i<33; i++)
+			{
+				xil_printf("%x ",rBuffer[i]);
+			}
+			xil_printf("\r\n");
+			DMA0RxDone = 0;
+		}
+		if(DMA1RxDone == 1)
+		{
+			Length = dma_8_10b_recv(&AxiDma1,rBuffer);
+		xil_printf("length DMA1 is 0x%x\r\n",Length);
+
+			xil_printf("DATE: ");
+			for(i=0; i<33; i++)
+			{
+				xil_printf("%x ",rBuffer[i]);
+			}
+			xil_printf("\r\n");
+			DMA1RxDone = 0;
+		}
+		if(DMA2RxDone == 1)
+		{
+			dma_8_10b_recv(&AxiDma2,rBuffer);
+			xil_printf("DATE: ");
+			for(i=0; i<33; i++)
+			{
+				xil_printf("%x ",rBuffer[i]);
+			}
+			xil_printf("\r\n");
+			DMA2RxDone = 0;
+		}
+		if(DMA3RxDone == 1)
+		{
+			dma_8_10b_recv(&AxiDma3,rBuffer);
+			xil_printf("DATE: ");
+			for(i=0; i<33; i++)
+			{
+				xil_printf("%x ",rBuffer[i]);
+			}
+			xil_printf("\r\n");
+			DMA3RxDone = 0;
+		}
+
+	}
+
+}
+

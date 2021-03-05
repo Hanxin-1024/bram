@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;BRAMintr/src/xdma_driver.c&apos; to &apos;bram_driver.c&apos;" description="Rename resource &apos;xdma_driver.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/xdma_driver.c" name="bram_driver.c" stamp="1614669868551" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;BRAMintr/src/xdma_driver.h&apos; to &apos;bram_driver.h&apos;" description="Rename resource &apos;xdma_driver.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/xdma_driver.h" name="bram_driver.h" stamp="1614669880449" updateReferences="true"/>
+</session>

@@ -1,0 +1,53 @@
+/*
+ * demo.c
+ *
+ *  Created on: 2020年12月26日
+ *      Author: xin.han
+ *      //串口驱动
+
+//LVDS
+
+//8B/10
+
+//IO
+
+//RS485
+
+//1553B
+ *
+ */
+
+
+#include "xuartps.h"
+#include "xparameters.h"
+#include "bram_driver.h"
+
+
+
+
+void Bram_demo();
+
+//void show8();
+//void show9();
+
+
+extern int TotalReceivedCount;
+
+
+int main ()
+{
+xil_printf("start\r\n");
+//	count();
+//	LVDS_demo();
+  Bram_demo();
+
+
+}
+
+
+
+void Bram_demo()
+{
+
+}
+

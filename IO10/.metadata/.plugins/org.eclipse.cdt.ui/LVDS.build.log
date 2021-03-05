@@ -1,0 +1,8 @@
+15:20:53 **** Auto Build of configuration Debug for project LVDS ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+
+15:20:54 Build Finished (took 256ms)
+

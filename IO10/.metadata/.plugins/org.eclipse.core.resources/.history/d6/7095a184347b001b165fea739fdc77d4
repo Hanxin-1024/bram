@@ -1,0 +1,81 @@
+/*
+ * demo.c
+ *
+ *  Created on: 2020年12月26日
+ *      Author: xin.han
+ *      //串口驱动
+
+//LVDS
+
+//8B/10
+
+//IO
+
+//RS485
+
+//1553B
+ *
+ */
+
+
+#include "xuartps.h"
+#include "xparameters.h"
+#include "bram_driver.h"
+
+
+
+
+void Bram_demo();
+
+//void show8();
+//void show9();
+
+
+extern int TotalReceivedCount;
+
+
+int main ()
+{
+xil_printf("start\r\n");
+//	count();
+//	LVDS_demo();
+  Bram_demo();
+
+
+}
+
+
+
+void Bram_demo()
+{
+	int Status;
+	int Length;
+	int i;
+	Bram_init();
+
+		/*初始化发送包内容*/
+		for(i = 0;i < 128;i++)
+		{
+			XBram_Out32(XPAR_BRAM_7_BASEADDR+(i*4),i);
+//			Status = XBram_In32(XPAR_BRAM_7_BASEADDR+(i*4));
+//			xil_printf("Bram tx value is 0x%x\r\n",Status);
+
+		}
+
+//		 sleep(1);
+//		XBram_Out32(XPAR_BRAM_0_BASEADDR+16+16+16,0x1);//发送包开始前 清除接收计数
+//		sleep(1);
+//		XBram_Out32(XPAR_BRAM_0_BASEADDR+16+16+16,0x0);//发送包开始前 清除接收计数，必须有
+//		sleep(1);
+//		XBram_Out32(XPAR_BRAM_0_BASEADDR+8+16+16+16,0x0);
+
+		XBram_Out32(XPAR_BRAM_0_BASEADDR+4+16+16+16,0x100);
+
+	    XBram_Out32(XPAR_BRAM_0_BASEADDR+8+16+16+16,0x1);
+
+	    XBram_Out32(XPAR_BRAM_0_BASEADDR+8+16+16+16,0x0);
+//		XBram_Out32(XPAR_BRAM_0_BASEADDR+12,1);
+//	    XBram_Out32(XPAR_BRAM_0_BASEADDR+12+16+16+16,1);
+//	    XBram_Out32(XPAR_BRAM_0_BASEADDR+12+16+16+16,0);
+}
+
